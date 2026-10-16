@@ -807,7 +807,7 @@
             content.push({
               text: Array.from(softSkills).map(function (skill, index) {
                 return [
-                  { text: index ? "   " : "" },
+                  { text: index ? "            " : "" },
                   { text: skill.textContent, bold: true }
                 ];
               }).flat(),
@@ -849,12 +849,12 @@
             }
           });
           await window.pdfMake.createPdf(buildPdf())
-            .download("Branislav_Modriansky_Resume_" + exportLang + ".pdf");
+            .download("Branislav-Modriansky-resume-" + exportLang + ".pdf");
         } catch (error) {
           console.error("PDF download failed:", error);
           window.alert(exportLang === "sk"
-            ? "PDF sa nepodarilo stiahnuť. Skontrolujte pripojenie a skúste to znova."
-            : "The PDF could not be downloaded. Please check your connection and try again.");
+            ? "PDF sa nepodarilo stiahnuť."
+            : "PDF download failed.");
         } finally {
           pdfBtn.disabled = false;
           pdfBtn.removeAttribute("aria-busy");
