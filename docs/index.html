@@ -101,7 +101,12 @@
       cursor: pointer;
     }
 
-    .btn:hover { background: var(--btn-hover); }
+    /* Button hover styles for devices that support hover */
+    @media (hover: hover) and (pointer: fine) {
+      .btn:hover { background: var(--btn-hover); }
+    }
+    /* Button action for mobile devices */
+    .btn:active { background: var(--btn-hover); }
     .btn:disabled { cursor: wait; opacity: 0.6; }
 
     .btn svg { width: 15px; height: 15px; flex: none; }
