@@ -15,6 +15,7 @@
       --bg: #ffffff;
       --btn-hover: #f3f4f6;
       --maxw: 48rem;
+      --theme-duration: 0.15s;
     }
 
     :root[data-theme="dark"] {
@@ -31,6 +32,22 @@
 
     html { -webkit-text-size-adjust: 100%; }
 
+    body,
+    a,
+    .btn,
+    .contact,
+    h2,
+    h3,
+    .item-sub,
+    .item-date,
+    .item::after,
+    ul.bullets li::before,
+    .skill-title,
+    .skill-description,
+    footer {
+      transition: all var(--theme-duration) ease;
+    }
+
     body {
       margin: 0;
       background: var(--bg);
@@ -38,7 +55,6 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       font-size: 16px;
       line-height: 1.55;
-      transition: background 0.2s ease, color 0.2s ease;
     }
 
     a {
@@ -83,7 +99,6 @@
       border-radius: 8px;
       padding: 7px 12px;
       cursor: pointer;
-      transition: background 0.15s ease;
     }
 
     .btn:hover { background: var(--btn-hover); }
@@ -171,10 +186,11 @@
       margin: 0.6rem auto 0;
       border-bottom: 1px solid var(--line2);
     }
-    .item:last-child { margin-bottom: 0; }
     .item:last-child::after {
       border-bottom: none;
     }
+
+    .item:last-child { margin-bottom: 0; }
 
     .item-head {
       display: flex;
@@ -244,14 +260,14 @@
       margin: 0.4rem 0 0.4rem 0.2rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 1.4rem;
+      gap: 0.6rem;
     }
     .soft-skills span {
       padding: 0rem 0.46rem 0.1rem 0.46rem;
     }
 
     footer {
-      margin-top: 3.4rem;
+      margin-top: 10rem;
       font-size: 0.8rem;
       color: var(--muted);
       text-align: center;
@@ -263,7 +279,12 @@
       .item-head { flex-direction: column; gap: 2px; }
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      :root { --theme-duration: 0s; }
+    }
+
     @media print {
+      :root { --theme-duration: 0s; }
       body { font-size: 11pt; background: #fff; color: #000; }
       .page { padding: 0; max-width: none; }
       .toolbar { display: none; }
@@ -455,12 +476,11 @@
           btnThemeLight:      "Light",
 
           summaryTitle:       "Outline",
-          summaryBody:        "Bioinformatics MSc student and a Python enthusiast with a skillset in applied programming – data processing, visualization and application development. " +
-                              "As a part of my bachelor's thesis, I developed a <a href=\"https://branislavmodriansky.github.io/peregrin-app/\" target=\"_blank\" rel=\"noopener noreferrer\">reactive Py-Shiny web application</a> " +
-                              "for interactive data analysis to help researchers analyze the output of their experiments. " +
-                              "Thanks to that, I gained experience across the entire workflow: experimental design → raw data output → processing and analysis → output interpretation. " +
-                              "I am a very fast learner, capable of handling tasks independently in a dynamic and challenging environment, but I enjoy collaborating with others and working in teams, " + 
-                              "figuring out solutions or improving implemented methods in order to progress and push projects forward.",
+          summaryBody:        "Bioinformatics MSc student and a Python enthusiast with a skillset in applied programming – data processing, visualization and application development. As a part of my " +
+                              "bachelor's thesis, I developed a <a href=\"https://branislavmodriansky.github.io/peregrin-app/\" target=\"_blank\" rel=\"noopener noreferrer\">reactive Py-Shiny web application</a> " +
+                              "for interactive data analysis to help researchers analyze the output of their experiments. Thanks to that, I gained experience across the entire workflow: experimental design " +
+                              "→ raw data output → processing and analysis → output interpretation. I am a very fast learner, capable of handling tasks independently in a dynamic and challenging environment, " +
+                              "but I enjoy collaborating with others and working in teams, figuring out solutions or improving implemented methods in order to progress and push projects forward.",
 
           experienceTitle:    "Education & Experience",
           item1Title:         "Bioinformatics MSc. (ongoing)",
@@ -487,12 +507,12 @@
           skillsTitle:        "Skills",
 
           skillsSubtitle1:    "Coding & data analysis",
-          PythonDescr:        "Here, I have the most experience. With <b>Python</b>, I could confidently tackle a wide range of tasks. Libraries I worked with in <u>data handling and computation</u> include " +
-                              "<b><i>pandas</i></b>, <b><i>NumPy</i></b>, <b><i>Polars</i></b> and a bit of <b><i>SciPy</i></b>. " +
-                              "When <u>visualizing data</u>, I primarily use <b><i>matplotlib</i></b>, but I also worked with <b><i>seaborn</i></b>, <b><i>plotly</i></b> and <b><i>altair</i></b>. " +
-                              "In web <u>application development</u>, I used the <b><i>Shiny for Python</i></b> framework.",
+          PythonDescr:        "Here, I have the most experience. With <b>Python</b>, I could confidently tackle a wide range of tasks. Libraries I worked with in <u>data handling and computation</u>"  +
+                              "include <b><i>pandas</i></b>, <b><i>NumPy</i></b>, <b><i>Polars</i></b> and a bit of <b><i>SciPy</i></b>. When <u>visualizing data</u>, I primarily use <b><i>matplotlib</i></b>, " +
+                              "but I also worked with <b><i>seaborn</i></b>, <b><i>plotly</i></b> and <b><i>altair</i></b>. In web <u>application development</u>, I used the <b><i>Shiny for Python</i></b> framework.",
           HTMLCSSDescr:       "I have working knowledge of <b>HTML</b> and <b>CSS</b>, which I often use for structuring and styling web content.",
-          RDescr:             "Throughout my UNI courses, I gained experience with <b>R</b> for basic data manipulation, statistical analysis and visualization. Although I do not use it in my own projects, I am familiar with its capabilities and could leverage it when needed.",
+          RDescr:             "Throughout my UNI courses, I gained experience with <b>R</b> for basic data manipulation, statistical analysis and visualization. Although I do not use it in my own projects, " +
+                              "I am familiar with its capabilities and could leverage it when needed.",
           JSDescr:            "Although I have very little experience with <b>JavaScript</b>, I used it during web development to create custom interactive UI components. I would like to learn more and improve my skills in this language.",
 
           skillsSubtitle2:    "Cloud Services",
@@ -514,10 +534,11 @@
 
           summaryTitle:       "Zhrnutie",
           summaryBody:        "Mgr. študent bioinformatiky a nadšenec do Pythonu s programovacími zručnosťami, ako sú spracovanie a vizualizácia dát či vývoj aplikácií. " +
-                              "V rámci mojej bakalárskej práce som vyvinul reaktívnu, webovú aplikáciu s balíčkom Py-Shiny. Umožňuje vedcom interaktívne analyzovať výstupy ich experimentov. " +
-                              "Vďaka tejto práci som získal skúsenosti naprieč celým pracovným postupom: návrh experimentu → výstup → spracovanie a analýza → interpretácia výsledkov. " +
-                              "Veľmi rýchlo sa učím a som schopný samostatne navrhovať a riešiť zadania v dynamickom a náročnom prostredí, avšak rád diskutujem a spolupracujem " + 
-                              "s cieľom nachádzať riešenia alebo zlepšovať existujúce metódy a týmto spôsobom posúvať projekty vpred.",
+                              "V rámci mojej bakalárskej práce som vyvinul <a href=\"https://branislavmodriansky.github.io/peregrin-app/\" target=\"_blank\" rel=\"noopener noreferrer\">" +
+                              "reaktívnu, webovú aplikáciu</a> s balíčkom Py-Shiny. Umožňuje vedcom interaktívne analyzovať výstupy ich experimentov. Vďaka tejto práci som získal " +
+                              "skúsenosti naprieč celým pracovným postupom: návrh experimentu → výstup → spracovanie a analýza → interpretácia výsledkov. Veľmi rýchlo sa učím " +
+                              "a som schopný samostatne navrhovať a riešiť zadania v dynamickom a náročnom prostredí, avšak rád diskutujem a spolupracujem s cieľom nachádzať " +
+                              "riešenia alebo zlepšovať existujúce metódy a týmto spôsobom posúvať projekty vpred.",
           
           experienceTitle:    "Vzdelanie & skúsenosti",
           item1Title:         "Bioinformatika Mgr. (prebieha)",
@@ -544,12 +565,12 @@
           skillsTitle:        "Zručnosti",
 
           skillsSubtitle1:    "Programovanie a dátová analýza",
-          PythonDescr:        "Tu mám skúseností najviac. S <b>Pythonom</b> dokážem sebavedome vyriešiť pomerne širokú škálu úloh. Knižnice, s ktorými som pracoval pri <u>spracovávaní a výpočte dát</u>, zahŕňajú " +
-                              "<b><i>pandas</i></b>, <b><i>NumPy</i></b>, <b><i>Polars</i></b> a aj trochu <b><i>SciPy</i></b>. " +
-                              "Na <u>vizualizáciu dát</u> používam primárne <b><i>matplotlib</i></b>, ale pracoval som aj so <b><i>seaborn</i></b>, <b><i>plotly</i></b> a <b><i>altair</i></b>. " +
-                              "Pri <u>webovom vývoji</u> som používal <b><i>Shiny for Python</i></b> balíček.",
+          PythonDescr:        "Tu mám skúseností najviac. S <b>Pythonom</b> dokážem sebavedome vyriešiť pomerne širokú škálu úloh. Knižnice, s ktorými som pracoval pri <u>spracovávaní a výpočte dát</u>, " +
+                              "zahŕňajú <b><i>pandas</i></b>, <b><i>NumPy</i></b>, <b><i>Polars</i></b> a aj trochu <b><i>SciPy</i></b>. Na <u>vizualizáciu dát</u> používam primárne <b><i>matplotlib</i></b>, " +
+                              "ale pracoval som aj so <b><i>seaborn</i></b>, <b><i>plotly</i></b> a <b><i>altair</i></b>. Pri <u>webovom vývoji</u> som používal <b><i>Shiny for Python</i></b> balíček.",
           HTMLCSSDescr:       "U <b>HTML</b> a <b>CSS</b> mám praktické znalosti, ktoré často používam na štruktúrovanie a styling webov.",
-          RDescr:             "Počas mojich univerzitných kurzov som získal skúsenosti v <b>R</b> pre základnú manipuláciu s dátami, štatistickú analýzu a vizualizáciu. Hoci ho nepoužívam vo vlastných projektoch, poznám jeho schopnosti a v prípade potreby by som ich dokázal využiť.",
+          RDescr:             "Počas mojich univerzitných kurzov som získal skúsenosti v <b>R</b> pre základnú manipuláciu s dátami, štatistickú analýzu a vizualizáciu. Hoci ho nepoužívam vo vlastných projektoch, " +
+                              "poznám jeho schopnosti a v prípade potreby by som ich dokázal využiť.",
           JSDescr:            "<b>JavaScript</b> síce profesionálne neovládam, no používam ho pri webovom vývoji, konkrétne na vytváranie interaktívnych UI komponentov. V budúcnosti by som sa v ňom chcel zlepšiť.",
 
           skillsSubtitle2:    "Cloud služby",
@@ -626,7 +647,6 @@
         applyLang(next);
       });
 
-      //  PDF generator:
       function pdfText(element, inherited) {
         var runs = [];
         element.childNodes.forEach(function (node) {
@@ -787,7 +807,7 @@
             content.push({
               text: Array.from(softSkills).map(function (skill, index) {
                 return [
-                  { text: index ? "            " : "" },
+                  { text: index ? "   " : "" },
                   { text: skill.textContent, bold: true }
                 ];
               }).flat(),
@@ -800,7 +820,7 @@
         return {
           pageSize: "A4",
           pageMargins: [42, 36, 42, 36],
-          defaultStyle: { font: "Roboto", fontSize: 10.5, lineHeight: 1.2, color: "#1a1a1a" },
+          defaultStyle: { font: "Roboto", fontSize: 10.5, lineHeight: 1.18, color: "#1a1a1a" },
           styles: {
             heading: { fontSize: 10, bold: true, color: "#656565", characterSpacing: 1.3 },
             subtitle: { fontSize: 9.5, bold: true, color: "#656565",
@@ -829,12 +849,12 @@
             }
           });
           await window.pdfMake.createPdf(buildPdf())
-            .download("BranislavModriansky-resume-" + exportLang + ".pdf");
+            .download("Branislav_Modriansky_Resume_" + exportLang + ".pdf");
         } catch (error) {
           console.error("PDF download failed:", error);
           window.alert(exportLang === "sk"
             ? "PDF sa nepodarilo stiahnuť. Skontrolujte pripojenie a skúste to znova."
-            : "PDF download failed. Please check your connection and try again.");
+            : "The PDF could not be downloaded. Please check your connection and try again.");
         } finally {
           pdfBtn.disabled = false;
           pdfBtn.removeAttribute("aria-busy");
