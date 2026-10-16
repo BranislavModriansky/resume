@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Branislav Modriansky – Resume</title>
+  <meta name="description" content="Resume of Branislav Modriansky" />
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --muted: #656565;
+      --line: #e4e4e4;
+      --line2: #eeeeee;
+      --accent: #2d6cdf;
+      --bg: #ffffff;
+      --btn-hover: #f3f4f6;
+      --maxw: 48rem;
+    }
+
+    :root[data-theme="dark"] {
+      --ink: #e8e8e8;
+      --muted: #9a9a9a;
+      --line: #303030;
+      --line2: #232323;
+      --accent: #6ea0ff;
+      --bg: #141414;
+      --btn-hover: #282828;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+
+    a:hover {
+      border-bottom-color: var(--accent);
+    }
+    .page {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 1.75rem 1.75rem 6rem;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      margin-bottom: 1.8rem;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      width: 14.8rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font: inherit;
+      font-size: 0.82rem;
+      color: var(--ink);
+      background: transparent;
+      border: none;
+      border-radius: 8px;
+      padding: 7px 12px;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+
+    .btn:hover { background: var(--btn-hover); }
+    .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .btn:disabled { cursor: wait; opacity: 0.6; }
+
+    .btn svg { width: 15px; height: 15px; flex: none; }
+
+    #lang-btn { width: 4rem; }
+
+    header { margin-bottom: 40px; }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: 0 0 4px;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      padding-top: 0.4rem;
+      gap: 0.2rem 2rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .contact a,
+    .contact span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .contact svg { width: 16px; height: 16px; flex: none; }
+
+    .contact a {
+      color: var(--muted);
+    }
+
+    .contact a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+    section { margin-bottom: 36px; }
+
+    h2, h3 {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    h2 {
+      letter-spacing: 0.1rem;
+      margin-bottom: 1rem;
+      padding-top: 0.2rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .skills-subtitle { 
+      font-size: 0.74rem; 
+      letter-spacing: 0.06rem;
+      margin: 1.4rem 0 0 0;
+      color: var(--muted);
+    }
+
+    p {
+      margin: 0 0 12px;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: none;
+    }
+
+    p[data-i18n="summaryBody"] {
+      font-size: 0.85rem;
+    }
+
+    .item {
+      margin-bottom: 1.2rem;
+    }
+
+    .item::after {
+      content: "";
+      display: block;
+      width: calc(100% - 1rem);
+      margin: 0.6rem auto 0;
+      border-bottom: 1px solid var(--line2);
+    }
+    .item:last-child { margin-bottom: 0; }
+    .item:last-child::after {
+      border-bottom: none;
+    }
+
+    .item-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .item-title { font-weight: 600; font-size: 1.05rem; }
+    .item-sub { color: var(--muted); font-size: 0.9rem; }
+
+    .item-date {
+      color: var(--muted);
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    ul.bullets {
+      margin: 0.2rem 0 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    ul.bullets li {
+      position: relative;
+      padding-left: 1.6rem;
+      margin-bottom: 0.2rem;
+      line-height: 1.4rem;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: none;
+    }
+
+    ul.bullets li::before {
+      content: "";
+      position: absolute;
+      left: 0.2rem;
+      top: 0.2rem;
+      width: 1rem;
+      height: 1rem;
+      background-color: var(--muted);
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'%3E%3Cpath d='m560-120-57-57 144-143H200v-480h80v400h367L503-544l56-57 241 241-240 240Z'/%3E%3C/svg%3E") no-repeat center / contain;
+              mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'%3E%3Cpath d='m560-120-57-57 144-143H200v-480h80v400h367L503-544l56-57 241 241-240 240Z'/%3E%3C/svg%3E") no-repeat center / contain;
+    }
+
+    .skills {
+      margin-left: 0.2rem;
+    }
+    .skill { margin: 0.4rem 0 0.6rem 0.2rem; }
+    .skill-title { 
+      font-weight: 600; 
+      border-radius: 10rem; 
+      border: 1px solid var(--line2);
+      background-color: var(--line2); 
+      padding: 0 0.46rem 0.12rem 0.46rem;
+    }
+    .skill-description { 
+      margin: 0.4rem 0 0.8rem calc(0.8rem - 1px);
+      padding: 0 0 0.2rem 0.7rem;
+      line-height: 1.2rem;
+      border-left: 2px solid var(--line); 
+      font-size: 0.9rem;
+      text-align: justify;
+      hyphens: none;
+    }
+    .soft-skills {
+      margin: 0.4rem 0 0.4rem 0.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+    }
+    .soft-skills span {
+      padding: 0rem 0.46rem 0.1rem 0.46rem;
+    }
+
+    footer {
+      margin-top: 3.4rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+      font-style: italic;
+    }
+
+    @media (max-width: 480px) {
+      .page { padding: 20px 20px 64px; }
+      .item-head { flex-direction: column; gap: 2px; }
+    }
+
+    @media print {
+      body { font-size: 11pt; background: #fff; color: #000; }
+      .page { padding: 0; max-width: none; }
+      .toolbar { display: none; }
+      a { 
+        color: #000; 
+        text-decoration: underline;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="toolbar">
+      <div class="buttons"> 
+        <button type="button" class="btn" id="pdf-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>PDF</span>
+        </button>
+
+        <button type="button" class="btn" id="lang-btn" aria-label="Switch language">
+          <svg viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="m476-80 182-480h84L924-80h-84l-43-122H603L560-80h-84ZM160-200l-56-56 202-202q-35-35-63.5-80T190-640h84q20 39 40 68t48 58q33-33 68.5-92.5T484-720H40v-80h280v-80h80v80h280v80H564q-21 72-63 148t-83 116l96 98-30 82-122-125-202 201Zm468-72h144l-72-204-72 204Z"/></svg>
+          <span id="lang-label">Slovensky</span>
+        </button>
+
+        <button type="button" class="btn" id="theme-btn" aria-label="Toggle dark mode">
+          <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <span id="theme-label">Dark</span>
+        </button>
+      </div>
+    </div>
+
+    <header>
+      <h1>Branislav Modriansky</h1>
+      <div class="contact">
+        <a href="mailto:modrianskybranislav@gmail.com">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"/></svg>
+          modrianskybranislav@gmail.com
+        </a>
+        <a href="tel:+420703116260">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z"/></svg>
+          +420 703 116 260
+        </a>
+        <a href="https://github.com/BranislavModriansky">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="M320-240 80-480l240-240 57 57-184 184 183 183-56 56Zm320 0-57-57 184-184-183-183 56-56 240 240-240 240Z"/></svg>
+          github.com/BranislavModriansky
+        </a>
+        <a href="https://www.google.com/maps/place/Brno,+Czech+Republic">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="M360-440h80v-110h80v110h80v-190l-120-80-120 80v190Zm120 254q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg>
+          Brno, Czech Republic
+        </a>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="M160-80q-17 0-28.5-11.5T120-120v-200q0-33 23.5-56.5T200-400v-160q0-33 23.5-56.5T280-640h160v-58q-18-12-29-29t-11-41q0-15 6-29.5t18-26.5l56-56 56 56q12 12 18 26.5t6 29.5q0 24-11 41t-29 29v58h160q33 0 56.5 23.5T760-560v160q33 0 56.5 23.5T840-320v200q0 17-11.5 28.5T800-80H160Zm120-320h400v-160H280v160Zm-80 240h560v-160H200v160Zm80-240h400-400Zm-80 240h560-560Zm560-240H200h560Z"/></svg>
+          6/5/2004
+        </span>
+      </div>
+    </header>
+
+    <section>
+      <h2 data-i18n="summaryTitle"></h2>
+      <p data-i18n="summaryBody"></p>
+    </section>
+
+    <section>
+      <h2 data-i18n="experienceTitle"></h2>
+      <div class="item">
+        <div class="item-head">
+          <div>
+            <span class="item-title" data-i18n="item1Title"></span>
+            <div class="item-sub" data-i18n="item1Organization"></div>
+          </div>
+          <span class="item-date" data-i18n="item1Date"></span>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-head">
+          <div>
+            <span class="item-title" data-i18n="item2Title"></span>
+            <div class="item-sub" data-i18n="item2Organization"></div>
+          </div>
+          <span class="item-date" data-i18n="item2Date"></span>
+        </div>
+        <ul class="bullets">
+          <li data-i18n="item2Bullet1"></li>
+          <li data-i18n="item2Bullet2"></li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-head">
+          <div>
+            <span class="item-title" data-i18n="item3Title"></span>
+            <div class="item-sub" data-i18n="item3Organization"></div>
+          </div>
+          <span class="item-date" data-i18n="item3Date"></span>
+        </div>
+        <ul class="bullets">
+          <li data-i18n="item3Bullet1"></li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-head">
+          <div>
+            <span class="item-title" data-i18n="item4Title"></span>
+            <div class="item-sub" data-i18n="item4Organization"></div>
+          </div>
+          <span class="item-date" data-i18n="item4Date"></span>
+        </div>
+        <ul class="bullets">
+          <li data-i18n="item4Bullet1"></li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-i18n="skillsTitle"></h2>
+
+      <div class="skills">
+        <h3 class="skills-subtitle" data-i18n="skillsSubtitle1"></h3>
+        <div class="skill">
+          <span class="skill-title">Python</span>
+          <div class="skill-description" data-i18n="PythonDescr"></div>
+        </div>
+
+        <div class="skill">
+          <span class="skill-title">HTML &amp; CSS</span>
+          <div class="skill-description" data-i18n="HTMLCSSDescr"></div>
+        </div>
+
+        <div class="skill">
+          <span class="skill-title">R</span>
+          <div class="skill-description" data-i18n="RDescr"></div>
+        </div>
+
+        <div class="skill">
+          <span class="skill-title">JavaScript</span>
+          <div class="skill-description" data-i18n="JSDescr"></div>
+        </div>
+      </div>
+
+      <div class="skills">
+        <h3 class="skills-subtitle" data-i18n="skillsSubtitle2"></h3>
+        <div class="skill">
+          <span class="skill-title">GitHub</span>
+          <div class="skill-description" data-i18n="GitHubDescr"></div>
+        </div>
+
+        <div class="skill">
+          <span class="skill-title">Docker</span>
+          <div class="skill-description" data-i18n="DockerDescr"></div>
+        </div>
+      </div>
+
+      <div class="skills">
+        <h3 class="skills-subtitle" data-i18n="skillsSubtitle3"></h3>
+        <div class="soft-skills">
+          <span class="skill-title" data-i18n="softSkill1"></span>
+          <span class="skill-title" data-i18n="softSkill2"></span>
+          <span class="skill-title" data-i18n="softSkill3"></span>
+          <span class="skill-title" data-i18n="softSkill4"></span>
+          <span class="skill-title" data-i18n="softSkill5"></span>
+        </div>
+      </div>
+    </section>
+
+    <footer data-i18n="footer">
+      Updated October 2026
+    </footer>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.3.1/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.3.1/vfs_fonts.js"></script>
+  <script>
+    (function () {
+      var root = document.documentElement;
+
+      var i18n = {
+        en: {
+          btnTheme:           "Dark",
+          btnThemeLight:      "Light",
+
+          summaryTitle:       "Outline",
+          summaryBody:        "Bioinformatics MSc student and a Python enthusiast with a skillset in applied programming – data processing, visualization and application development. " +
+                              "As a part of my bachelor's thesis, I developed a <a href=\"https://branislavmodriansky.github.io/peregrin-app/\" target=\"_blank\" rel=\"noopener noreferrer\">reactive Py-Shiny web application</a> " +
+                              "for interactive data analysis to help researchers analyze the output of their experiments. " +
+                              "Thanks to that, I gained experience across the entire workflow: experimental design → raw data output → processing and analysis → output interpretation. " +
+                              "I am a very fast learner, capable of handling tasks independently in a dynamic and challenging environment, but I enjoy collaborating with others and working in teams, " + 
+                              "figuring out solutions or improving implemented methods in order to progress and push projects forward.",
+
+          experienceTitle:    "Education & Experience",
+          item1Title:         "Bioinformatics MSc. (ongoing)",
+          item1Organization:  "Masaryk University, Faculty of Science",
+          item1Date:          "2026 – present",
+
+          item2Title:         "Lab Manager",
+          item2Organization:  "Vítězslav Bryja's Laboratory of Cellular Communication",
+          item2Date:          "2026 February – 2026 October",
+          item2Bullet1:       "Managing orders for supplies and coordinating with distributors. ",
+          item2Bullet2:       "Routine maintenance of an inventory for competent cell transformations.",
+
+          item3Title:         "Research Assistant",
+          item3Organization:  "Vítězslav Bryja's Laboratory of Cellular Communication",
+          item3Date:          "2025 March – 2025 November",
+          item3Bullet1:       "Collaborating with laboratory members and generating experimental data (e.g., western blots or immunocytochemistry samples) for ongoing research projects.",
+
+          item4Title:         "Molecular Biology and Genetics with specialization in Cell Biology Bc.",
+          item4Organization:  "Masaryk University, Faculty of Science, Department of Experimental Biology",
+          item4Date:          "2023 – 2026 (completed)",
+          item4Bullet1:       "Development and deployment of an <a href=\"https://branislavmodriansky.github.io/peregrin-app/\" target=\"_blank\" rel=\"noopener noreferrer\">interactive Py-Shiny web application</a>. " +
+                              "A tool designed for processing cell-tracking data – includes features such as data computation, filtering, visualization and results export.",
+          
+          skillsTitle:        "Skills",
+
+          skillsSubtitle1:    "Coding & data analysis",
+          PythonDescr:        "Here, I have the most experience. With <b>Python</b>, I could confidently tackle a wide range of tasks. Libraries I worked with in <u>data handling and computation</u> include " +
+                              "<b><i>pandas</i></b>, <b><i>NumPy</i></b>, <b><i>Polars</i></b> and a bit of <b><i>SciPy</i></b>. " +
+                              "When <u>visualizing data</u>, I primarily use <b><i>matplotlib</i></b>, but I also worked with <b><i>seaborn</i></b>, <b><i>plotly</i></b> and <b><i>altair</i></b>. " +
+                              "In web <u>application development</u>, I used the <b><i>Shiny for Python</i></b> framework.",
+          HTMLCSSDescr:       "I have working knowledge of <b>HTML</b> and <b>CSS</b>, which I often use for structuring and styling web content.",
+          RDescr:             "Throughout my UNI courses, I gained experience with <b>R</b> for basic data manipulation, statistical analysis and visualization. Although I do not use it in my own projects, I am familiar with its capabilities and could leverage it when needed.",
+          JSDescr:            "Although I have very little experience with <b>JavaScript</b>, I used it during web development to create custom interactive UI components. I would like to learn more and improve my skills in this language.",
+
+          skillsSubtitle2:    "Cloud Services",
+          GitHubDescr:        "Working knowledge of <b>GitHub</b> – repository management, version control, and deployment using GitHub Pages static servers for hosting while independently maintaining personal projects.",
+          DockerDescr:        "Basic experience with <b>Docker</b> containerization, image creation, and deployment when sharing images across devices via Docker Hub.",
+
+          skillsSubtitle3:    "Soft Skills",
+          softSkill1:         "Problem Solving",
+          softSkill2:         "Adaptability",
+          softSkill3:         "Creativity",
+          softSkill4:         "Aesthetic Sensibility",
+          softSkill5:         "Teamwork",
+
+          footer:             "Last updated in October 2026"
+        },
+        sk: {
+          btnTheme:           "Noc",
+          btnThemeLight:      "Deň",
+
+          summaryTitle:       "Zhrnutie",
+          summaryBody:        "Mgr. študent bioinformatiky a nadšenec do Pythonu s programovacími zručnosťami, ako sú spracovanie a vizualizácia dát či vývoj aplikácií. " +
+                              "V rámci mojej bakalárskej práce som vyvinul reaktívnu, webovú aplikáciu s balíčkom Py-Shiny. Umožňuje vedcom interaktívne analyzovať výstupy ich experimentov. " +
+                              "Vďaka tejto práci som získal skúsenosti naprieč celým pracovným postupom: návrh experimentu → výstup → spracovanie a analýza → interpretácia výsledkov. " +
+                              "Veľmi rýchlo sa učím a som schopný samostatne navrhovať a riešiť zadania v dynamickom a náročnom prostredí, avšak rád diskutujem a spolupracujem " + 
+                              "s cieľom nachádzať riešenia alebo zlepšovať existujúce metódy a týmto spôsobom posúvať projekty vpred.",
+          
+          experienceTitle:    "Vzdelanie & skúsenosti",
+          item1Title:         "Bioinformatika Mgr. (prebieha)",
+          item1Organization:  "Masarykova univerzita, Prírodovedecká fakulta",
+          item1Date:          "2026 – súčasnosť",
+
+          item2Title:         "Lab Manažér",
+          item2Organization:  "Vítězslav Bryja's Laboratory of Cellular Communication",
+          item2Date:          "február 2026 – október 2026",
+          item2Bullet1:       "Správa objednávok pre laboratórny materiál a koordinácia s distribútormi.",
+          item2Bullet2:       "Rutinná údržba inventára pre transformácie kompetentných buniek.",
+
+          item3Title:         "Výskumný Asistent",
+          item3Organization:  "Vítězslav Bryja's Laboratory of Cellular Communication",
+          item3Date:          "marec 2025 – november 2025",
+          item3Bullet1:       "Spolupráca s členmi laboratória. Generovanie experimentálnych dát (napr. western blot alebo vzorky pre imunocytochemické analýzy) pre prebiehajúce výskumné projekty.",
+
+          item4Title:         "Molekulárna biológia a genetika so špecializáciou na Bunkovú biológiu Bc.",
+          item4Organization:  "Masarykova univerzita, Prírodovedecká fakulta, Katedra experimentálnej biológie",
+          item4Date:          "2023 – 2026 (ukončené)",
+          item4Bullet1:       "Vývoj a deployment <a href=\"https://branislavmodriansky.github.io/peregrin-app/\" target=\"_blank\" rel=\"noopener noreferrer\">interaktívnej Py-Shiny webovej aplikácie</a>. " +
+                              "Nástroj je určený na spracovanie cell-trackingových dát s funkciami ako výpočet dát, filtrovanie, vizualizácia a export výsledkov.",
+          
+          skillsTitle:        "Zručnosti",
+
+          skillsSubtitle1:    "Programovanie a dátová analýza",
+          PythonDescr:        "Tu mám skúseností najviac. S <b>Pythonom</b> dokážem sebavedome vyriešiť pomerne širokú škálu úloh. Knižnice, s ktorými som pracoval pri <u>spracovávaní a výpočte dát</u>, zahŕňajú " +
+                              "<b><i>pandas</i></b>, <b><i>NumPy</i></b>, <b><i>Polars</i></b> a aj trochu <b><i>SciPy</i></b>. " +
+                              "Na <u>vizualizáciu dát</u> používam primárne <b><i>matplotlib</i></b>, ale pracoval som aj so <b><i>seaborn</i></b>, <b><i>plotly</i></b> a <b><i>altair</i></b>. " +
+                              "Pri <u>webovom vývoji</u> som používal <b><i>Shiny for Python</i></b> balíček.",
+          HTMLCSSDescr:       "U <b>HTML</b> a <b>CSS</b> mám praktické znalosti, ktoré často používam na štruktúrovanie a styling webov.",
+          RDescr:             "Počas mojich univerzitných kurzov som získal skúsenosti v <b>R</b> pre základnú manipuláciu s dátami, štatistickú analýzu a vizualizáciu. Hoci ho nepoužívam vo vlastných projektoch, poznám jeho schopnosti a v prípade potreby by som ich dokázal využiť.",
+          JSDescr:            "<b>JavaScript</b> síce profesionálne neovládam, no používam ho pri webovom vývoji, konkrétne na vytváranie interaktívnych UI komponentov. V budúcnosti by som sa v ňom chcel zlepšiť.",
+
+          skillsSubtitle2:    "Cloud služby",
+          GitHubDescr:        "Pracovná znalosť <b>GitHubu</b> – správa repozitárov, manažment verzií a deployment pomocou statických serverov GitHub Pages pri samostatnej údržbe osobných projektov.",
+          DockerDescr:        "Základné skúsenosti s <b>Docker</b> kontajnerizáciou, tvorbou Docker images a deploymentom pri zdieľaní Docker images medzi zariadeniami prostredníctvom Docker Hubu.",
+
+          skillsSubtitle3:    "Mäkké kompetencie",
+          softSkill1:         "Riešenie problémov",
+          softSkill2:         "Adaptabilita",
+          softSkill3:         "Kreativita",
+          softSkill4:         "Estetické cítenie",
+          softSkill5:         "Tímová práca",
+
+          footer:             "Naposledy obnovené v Októbri 2026"
+        }
+      };
+
+      var langLabel = { en: "SK", sk: "EN" };
+
+      var themeBtn = document.getElementById("theme-btn");
+      var themeLabel = document.getElementById("theme-label");
+      var themeIcon = document.getElementById("theme-icon");
+      var sunPath = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+      var moonPath = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+
+      var systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+      function applyTheme(theme) {
+        root.setAttribute("data-theme", theme);
+        var isDark = theme === "dark";
+        themeIcon.innerHTML = isDark ? sunPath : moonPath;
+        var dict = i18n[currentLang];
+        themeLabel.textContent = isDark ? dict.btnThemeLight : dict.btnTheme;
+      }
+
+      var langBtn = document.getElementById("lang-btn");
+      var langLabelEl = document.getElementById("lang-label");
+      var currentLang = localStorage.getItem("cv-lang") || "en";
+
+      function applyLang(lang) {
+        currentLang = lang;
+        var dict = i18n[lang];
+        root.setAttribute("lang", lang);
+        document.querySelectorAll("[data-i18n]").forEach(function (el) {
+          var key = el.getAttribute("data-i18n");
+          if (dict[key] !== undefined) {
+            el.innerHTML = dict[key];
+          }
+        });
+        langLabelEl.textContent = langLabel[lang];
+        applyTheme(root.getAttribute("data-theme"));
+      }
+
+      var savedTheme = localStorage.getItem("cv-theme");
+      var initialTheme = savedTheme || (systemTheme.matches ? "dark" : "light");
+      root.setAttribute("data-theme", initialTheme);
+      applyLang(currentLang);
+
+      systemTheme.addEventListener("change", function (e) {
+        if (!localStorage.getItem("cv-theme")) {
+          applyTheme(e.matches ? "dark" : "light");
+        }
+      });
+
+      themeBtn.addEventListener("click", function () {
+        var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        localStorage.setItem("cv-theme", next);
+        applyTheme(next);
+      });
+
+      langBtn.addEventListener("click", function () {
+        var next = currentLang === "en" ? "sk" : "en";
+        localStorage.setItem("cv-lang", next);
+        applyLang(next);
+      });
+
+      //  PDF generator:
+      function pdfText(element, inherited) {
+        var runs = [];
+        element.childNodes.forEach(function (node) {
+          if (node.nodeType === Node.TEXT_NODE) {
+            node.textContent.replace(/\s+/g, " ").split(/(\u2192)/).forEach(function (text) {
+              if (text === "\u2192") {
+                runs.push({ text: text, font: "Symbols" });
+              } else if (text) {
+                runs.push(Object.assign({}, inherited, { text: text }));
+              }
+            });
+          } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName !== "svg") {
+            var style = Object.assign({}, inherited);
+            if (node.matches("b, strong")) style.bold = true;
+            if (node.matches("i, em")) style.italics = true;
+            if (node.matches("u")) style.decoration = "underline";
+            if (node.matches("a")) {
+              style.link = node.href;
+              style.color = "#2d6cdf";
+              style.decoration = [];
+            }
+            if (node.matches("br")) {
+              runs.push(Object.assign({}, style, { text: "\n" }));
+            } else {
+              runs = runs.concat(pdfText(node, style));
+            }
+          }
+        });
+        return runs;
+      }
+
+      function pdfIcon(svg) {
+        var copy = svg.cloneNode(true);
+        copy.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+        copy.setAttribute("width", "16");
+        copy.setAttribute("height", "16");
+        copy.removeAttribute("aria-hidden");
+        [copy].concat(Array.from(copy.querySelectorAll("*"))).forEach(function (el) {
+          ["fill", "stroke"].forEach(function (attribute) {
+            if (el.getAttribute(attribute) === "currentColor") {
+              el.setAttribute(attribute, "#656565");
+            }
+          });
+        });
+        return new XMLSerializer().serializeToString(copy);
+      }
+
+      function buildPdf() {
+        var page = document.querySelector(".page");
+        var sections = page.querySelectorAll("section");
+        var width = 511.28;
+        var arrow = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="16" height="16"><path fill="#656565" d="m560-120-57-57 144-143H200v-480h80v400h367L503-544l56-57 241 241-240 240Z"/></svg>';
+
+        function heading(element) {
+          return {
+            stack: [
+              { text: element.textContent.toUpperCase(), style: "heading" },
+              { canvas: [{ type: "line", x1: 0, y1: 0, x2: width, y2: 0,
+                lineWidth: 0.6, lineColor: "#e4e4e4" }], margin: [0, 5, 0, 10] }
+            ],
+            headlineLevel: 1
+          };
+        }
+
+        var contacts = Array.from(page.querySelectorAll(".contact > *")).map(function (contact) {
+          return {
+            columns: [
+              { svg: pdfIcon(contact.querySelector("svg")), width: 11, margin: [0, 1, 0, 0] },
+              { text: pdfText(contact), fontSize: 9, color: "#656565",
+                link: contact.matches("a") ? contact.href : undefined }
+            ],
+            columnGap: 5,
+            margin: [0, 0, 0, 6]
+          };
+        });
+        var contactRows = [];
+        for (var i = 0; i < contacts.length; i += 2) {
+          contactRows.push({
+            columns: [
+              { width: 275, stack: [contacts[i]] },
+              { width: "*", stack: contacts[i + 1] ? [contacts[i + 1]] : [] }
+            ]
+          });
+        }
+        var content = [
+          { text: page.querySelector("h1").textContent, fontSize: 25, bold: true,
+            margin: [0, 0, 0, 14] },
+          { stack: contactRows, margin: [0, 0, 0, 10] },
+          heading(sections[0].querySelector("h2")),
+          { text: pdfText(sections[0].querySelector("p")), alignment: "justify",
+            fontSize: 10, margin: [0, 0, 0, 18] },
+          heading(sections[1].querySelector("h2"))
+        ];
+
+        sections[1].querySelectorAll(".item").forEach(function (item, index, items) {
+          var stack = [{
+            columns: [
+              { width: "*", stack: [
+                { text: item.querySelector(".item-title").textContent, bold: true, fontSize: 11 },
+                { text: item.querySelector(".item-sub").textContent,
+                  fontSize: 9.5, color: "#656565", margin: [0, 3, 0, 0] }
+              ] },
+              { text: item.querySelector(".item-date").textContent, width: 132,
+                alignment: "right", color: "#656565", fontSize: 9 }
+            ],
+            columnGap: 10
+          }];
+          item.querySelectorAll("li").forEach(function (bullet) {
+            stack.push({
+              columns: [
+                { svg: arrow, width: 10, margin: [0, 2, 0, 0] },
+                { text: pdfText(bullet), alignment: "justify" }
+              ],
+              columnGap: 6,
+              margin: [0, 5, 0, 0]
+            });
+          });
+          if (index < items.length - 1) {
+            stack.push({ canvas: [{ type: "line", x1: 0, y1: 0, x2: width, y2: 0,
+              lineWidth: 0.5, lineColor: "#eeeeee" }], margin: [0, 10, 0, 0] });
+          }
+          content.push({ stack: stack, unbreakable: true, margin: [0, 0, 0, 12] });
+        });
+
+        var skillsHeading = heading(sections[2].querySelector("h2"));
+        skillsHeading.pageBreak = "before";
+        content.push(skillsHeading);
+        sections[2].querySelectorAll(".skills").forEach(function (group) {
+          content.push({
+            text: group.querySelector("h3").textContent.toUpperCase(),
+            style: "subtitle",
+            headlineLevel: 1
+          });
+          group.querySelectorAll(".skill").forEach(function (skill) {
+            content.push({
+              stack: [
+                { text: skill.querySelector(".skill-title").textContent, bold: true,
+                  margin: [0, 0, 0, 5] },
+                { table: { widths: ["*"], body: [[{
+                  text: pdfText(skill.querySelector(".skill-description")),
+                  alignment: "justify", margin: [7, 0, 0, 0]
+                }]] }, layout: {
+                  hLineWidth: function () { return 0; },
+                  vLineWidth: function (i) { return i === 0 ? 1.5 : 0; },
+                  vLineColor: function () { return "#e4e4e4"; },
+                  paddingLeft: function () { return 0; },
+                  paddingRight: function () { return 0; },
+                  paddingTop: function () { return 0; },
+                  paddingBottom: function () { return 0; }
+                } }
+              ],
+              unbreakable: true,
+              margin: [0, 0, 0, 13]
+            });
+          });
+          var softSkills = group.querySelectorAll(".soft-skills span");
+          if (softSkills.length) {
+            content.push({
+              text: Array.from(softSkills).map(function (skill, index) {
+                return [
+                  { text: index ? "            " : "" },
+                  { text: skill.textContent, bold: true }
+                ];
+              }).flat(),
+              fontSize: 9.5,
+              margin: [0, 0, 0, 12]
+            });
+          }
+        });
+
+        return {
+          pageSize: "A4",
+          pageMargins: [42, 36, 42, 36],
+          defaultStyle: { font: "Roboto", fontSize: 10.5, lineHeight: 1.2, color: "#1a1a1a" },
+          styles: {
+            heading: { fontSize: 10, bold: true, color: "#656565", characterSpacing: 1.3 },
+            subtitle: { fontSize: 9.5, bold: true, color: "#656565",
+              characterSpacing: 0.8, margin: [0, 12, 0, 10] }
+          },
+          content: content,
+          pageBreakBefore: function (node, container) {
+            return node.headlineLevel === 1 &&
+              container.getFollowingNodesOnPage().length === 0;
+          },
+          info: { title: page.querySelector("h1").textContent + " - Resume", creator: "Resume" }
+        };
+      }
+
+      var pdfBtn = document.getElementById("pdf-btn");
+      pdfBtn.addEventListener("click", async function () {
+        if (pdfBtn.disabled) return;
+        var exportLang = currentLang;
+        pdfBtn.disabled = true;
+        pdfBtn.setAttribute("aria-busy", "true");
+        try {
+          if (!window.pdfMake) throw new Error("The PDF library could not be loaded.");
+          window.pdfMake.addFonts({
+            Symbols: {
+              normal: "https://cdn.jsdelivr.net/npm/dejavu-fonts-ttf@2.37.0/ttf/DejaVuSans.ttf"
+            }
+          });
+          await window.pdfMake.createPdf(buildPdf())
+            .download("BranislavModriansky-resume-" + exportLang + ".pdf");
+        } catch (error) {
+          console.error("PDF download failed:", error);
+          window.alert(exportLang === "sk"
+            ? "PDF sa nepodarilo stiahnuť. Skontrolujte pripojenie a skúste to znova."
+            : "PDF download failed. Please check your connection and try again.");
+        } finally {
+          pdfBtn.disabled = false;
+          pdfBtn.removeAttribute("aria-busy");
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
