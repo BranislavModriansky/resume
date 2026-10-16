@@ -1,1 +1,1 @@
-# [RESUME](https://branislavmodriansky.github.io/portfolio/)
+# [RESUME](https://branislavmodriansky.github.io/resume/)
